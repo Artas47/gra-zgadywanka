@@ -7,7 +7,9 @@ namespace UnitTestProjectModelGry
     [TestClass]
     public class UnitTest1
     {
-        [TestMethod]
+        [DataTestMethod]
+        [DataRow(1, 10)]
+        [DataRow(1,1)]
         public void Losuj_OK()
         {
             //arrange-act-assert
@@ -19,7 +21,7 @@ namespace UnitTestProjectModelGry
             int wylos = Gra.Losuj(min, max);
 
             //Assert
-            Assert.IsTrue(wylos >= min && wylos <= max);
+            Assert.IsTrue(wylos >= Math.Min(x,y) && wylos <= Math.Max(x,y);
         }
     }
 }

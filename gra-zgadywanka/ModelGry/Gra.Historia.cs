@@ -4,31 +4,27 @@ using System.Text;
 
 namespace ModelGry
 {
-    public partial class Gra
+    partial class Gra
     {
+        // historia - lista ruchów
         private readonly List<Ruch> historia;
-        IReadOnlyList<Ruch> Historia => historia;
+        public IReadOnlyList<Ruch> Historia => historia;
 
-        // klasa wewnetrzna
+        // inner class
         public class Ruch
         {
-            public readonly int Propozycja;
-            public readonly Odp Odpowiedz;
-            public readonly DateTime Kiedy;
+            public readonly int propozycja;
+            public readonly Odpowiedz odpowiedz;
+            public readonly DateTime kiedy;
 
-            public Ruch(int prop, Odp odp)
+            internal Ruch(int prop, Odpowiedz odp)
             {
-                Propozycja = prop;
-                Odpowiedz = odp;
-                Kiedy = DateTime.Now;
+                propozycja = prop;
+                odpowiedz = odp;
+                kiedy = DateTime.Now;
             }
 
-            public override string ToString() =>
-                $"({Propozycja}, {Odpowiedz}, {Kiedy})";
-
-        } //konie klasy Ruch
-
-
-
+            public override string ToString() => $"( {propozycja}, {odpowiedz}, {kiedy})";
+        }
     }
 }
